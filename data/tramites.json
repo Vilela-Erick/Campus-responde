@@ -1,0 +1,80 @@
+[
+  {
+    "id": "TR-001",
+    "titulo": "Homologacion de asignaturas por cambio de carrera o rediseño",
+    "palabrasClave": ["homologacion", "asignaturas", "materias", "convalidacion", "cambio de carrera"],
+    "respuesta": "Presentar solicitud dirigida al Decanato dentro de los primeros 15 dias calendario del periodo academico, adjuntando certificados de calificaciones y programas analiticos legalizados con al menos 75% de afinidad.",
+    "fuenteOficial": "Reglamento de Regimen Academico Interno ULEAM - Art. 48",
+    "fechaPublicacion": "2026-03-10",
+    "fechaVigencia": "2027-03-31",
+    "unidadResponsable": "Decanato - Facultad Ciencias de la Vida y Tecnologia",
+    "estado": "Vigente",
+    "version": 1,
+    "historialVersiones": []
+  },
+  {
+    "id": "TR-002",
+    "titulo": "Solicitud de beca socioeconomica y merito academico",
+    "palabrasClave": ["beca", "socioeconomica", "merito", "ayuda economica", "promedio"],
+    "respuesta": "Registrar la postulacion en el sistema institucional adjuntando ficha socioeconomica actualizada, certificado de no adeudar aranceles y promedio minimo de 8.5 sobre 10 en el periodo inmediato anterior.",
+    "fuenteOficial": "Normativa de Becas y Ayudas Economicas - Resolucion OCS-2026-014",
+    "fechaPublicacion": "2026-04-02",
+    "fechaVigencia": "2027-02-28",
+    "unidadResponsable": "Direccion de Bienestar Universitario",
+    "estado": "Vigente",
+    "version": 1,
+    "historialVersiones": []
+  },
+  {
+    "id": "TR-003",
+    "titulo": "Retiro voluntario de asignatura en periodo ordinario",
+    "palabrasClave": ["retiro", "asignatura", "materia", "anulacion", "periodo ordinario"],
+    "respuesta": "El estudiante puede solicitar el retiro de una o mas asignaturas hasta los primeros 30 dias habiles iniciadas las clases mediante solicitud motivada en Secretaria de Carrera.",
+    "fuenteOficial": "Instructivo de Matriculas y Retiros 2026-2 - Cap. IV",
+    "fechaPublicacion": "2026-08-20",
+    "fechaVigencia": "2027-01-31",
+    "unidadResponsable": "Secretaria General y Coordinacion de Carrera",
+    "estado": "Vigente",
+    "version": 1,
+    "historialVersiones": []
+  },
+  {
+    "id": "TR-004",
+    "titulo": "Certificado de matricula y record academico digital",
+    "palabrasClave": ["certificado", "matricula", "record academico", "notas", "constancia"],
+    "respuesta": "Generar la solicitud en el portal academico institucional. La emision con firma electronica y codigo QR de verificacion se entrega en un plazo maximo de 48 horas habiles.",
+    "fuenteOficial": "Manual de Tramites Estudiantiles Digitales - Guia 09",
+    "fechaPublicacion": "2026-05-15",
+    "fechaVigencia": "2027-06-30",
+    "unidadResponsable": "Direccion de Registro y Admision",
+    "estado": "Vigente",
+    "version": 1,
+    "historialVersiones": []
+  },
+  {
+    "id": "TR-005",
+    "titulo": "Reglamento antiguo de practicas preprofesionales (Plan 2018)",
+    "palabrasClave": ["practicas", "preprofesionales", "pasantias", "plan 2018"],
+    "respuesta": "Documento derogado por actualizacion de malla curricular.",
+    "fuenteOficial": "Resolucion Historica FCVT-2018-09",
+    "fechaPublicacion": "2018-09-01",
+    "fechaVigencia": "2025-12-31",
+    "unidadResponsable": "Comision de Practicas Preprofesionales",
+    "estado": "Retirado",
+    "version": 2,
+    "historialVersiones": []
+  },
+  {
+    "id": "TR-006",
+    "titulo": "Convocatoria extraordinaria de ayudantia de catedra 2026-1",
+    "palabrasClave": ["ayudantia", "catedra", "convocatoria", "docencia"],
+    "respuesta": "Postulacion habilitada exclusivamente para el periodo 2026-1 con entrega de carpeta fisica en Coordinacion Academica.",
+    "fuenteOficial": "Circular Academica CA-2026-011",
+    "fechaPublicacion": "2026-03-15",
+    "fechaVigencia": "2026-09-15",
+    "unidadResponsable": "Coordinacion Academica de Carrera",
+    "estado": "Vigente",
+    "version": 1,
+    "historialVersiones": []
+  }
+]

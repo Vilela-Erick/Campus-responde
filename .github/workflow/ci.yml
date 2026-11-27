@@ -1,0 +1,29 @@
+name: CI - CampusResponde (Pruebas Automatizadas)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Ejecutar suite TDD (node --test)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verificar estructura minima del proyecto
+        run: |
+          test -f data/tramites.json
+          test -f README.md
+
+      - name: Ejecutar pruebas unitarias y de regresion
+        run: npm test
