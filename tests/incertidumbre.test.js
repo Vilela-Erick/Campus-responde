@@ -16,7 +16,7 @@ test("US-03: activa estado Informacion insuficiente cuando no hay respaldo ofici
 });
 
 test("US-03: activa estado Informacion insuficiente ante coincidencia debil bajo el umbral", () => {
-  const resultado = evaluarConsulta("solicitud", catalogo, "2026-11-26");
+  const resultado = evaluarConsulta("aranceles", catalogo, "2026-11-26");
 
   assert.equal(resultado.estado, "Informacion insuficiente");
   assert.equal(resultado.resultados.length, 0);
