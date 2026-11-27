@@ -35,6 +35,7 @@ test("US-05: conserva la version anterior con fecha y motivo tras una modificaci
   assert.match(ficha.historialVersiones[0].motivo, /Consejo Universitario/);
 });
 
+
 test("US-06: un documento marcado como Retirado deja de aparecer en las busquedas", () => {
   const catalogoPrueba = [
     {
