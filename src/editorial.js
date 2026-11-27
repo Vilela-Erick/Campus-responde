@@ -57,3 +57,15 @@ export function retirarFuenteObsoleta(
     fecha
   );
 }
+
+/**
+ * US-08 (En Pruebas): Registra valoracion util/no util y genera alerta editorial.
+ */
+export function registrarValoracionUsuario(ficha, util, comentario = "") {
+  if (!ficha.valoraciones) ficha.valoraciones = [];
+  ficha.valoraciones.push({ util: Boolean(util), comentario });
+  return {
+    alertaEditorial: !util,
+    totalReportesNegativos: ficha.valoraciones.filter((v) => !v.util).length
+  };
+}
