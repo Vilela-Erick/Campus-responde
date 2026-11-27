@@ -9,33 +9,54 @@ export function normalizarTexto(texto) {
     .trim();
 }
 
-export function esDocumentoValido(documento) {
+/**
+ * Regla unificada de elegibilidad documental (Refactorizacion US-06 + Cambio US-07):
+ * Excluye documentos marcados como "Retirado" y documentos cuya fechaVigencia haya expirado.
+ */
+export function esDocumentoValido(documento, fechaReferencia = FECHA_ACTUAL_SISTEMA) {
   if (!documento) return false;
   if (documento.estado === "Retirado") return false;
+  if (documento.fechaVigencia && documento.fechaVigencia < fechaReferencia) {
+    return false;
+  }
   return true;
 }
 
-export function buscarTramites(consulta, catalogo) {
+/**
+ * US-01 y US-02: Busca tramites por palabras clave y garantiza que cada resultado
+ * exponga fuente oficial, fecha de publicacion, vigencia y unidad responsable.
+ */
+export function buscarTramites(consulta, catalogo, fechaReferencia = FECHA_ACTUAL_SISTEMA) {
   const consultaNormalizada = normalizarTexto(consulta);
   if (!consultaNormalizada) return [];
 
-  const tokens = consultaNormalizada.split(/\s+/).filter((p) => p.length >= 3);
+  const tokens = consultaNormalizada
+    .split(/\s+/)
+    .filter((palabra) => palabra.length >= 3);
+
   if (tokens.length === 0) return [];
 
   const resultados = [];
 
   for (const doc of catalogo) {
-    if (!esDocumentoValido(doc)) continue;
+    if (!esDocumentoValido(doc, fechaReferencia)) continue;
 
     const tituloNorm = normalizarTexto(doc.titulo);
     const respuestaNorm = normalizarTexto(doc.respuesta);
     const clavesNorm = (doc.palabrasClave || []).map(normalizarTexto);
 
     let puntaje = 0;
+
     for (const token of tokens) {
-      if (clavesNorm.some((c) => c.includes(token) || token.includes(c))) puntaje += 2;
-      if (tituloNorm.includes(token)) puntaje += 2;
-      if (respuestaNorm.includes(token)) puntaje += 1;
+      if (clavesNorm.some((clave) => clave.includes(token) || token.includes(clave))) {
+        puntaje += 2;
+      }
+      if (tituloNorm.includes(token)) {
+        puntaje += 2;
+      }
+      if (respuestaNorm.includes(token)) {
+        puntaje += 1;
+      }
     }
 
     if (puntaje > 0) {
