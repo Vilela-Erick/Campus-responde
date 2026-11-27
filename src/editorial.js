@@ -57,3 +57,12 @@ export function retirarFuenteObsoleta(
     fecha
   );
 }
+
+/**
+ * US-09 (En desarrollo): Lista documentos proximos a caducar en los siguientes dias.
+ */
+export function listarDocumentosProximosACaducar(catalogo, fechaReferencia = "2026-11-26") {
+  return catalogo.filter(
+    (doc) => doc.estado === "Vigente" && doc.fechaVigencia >= fechaReferencia
+  );
+}
