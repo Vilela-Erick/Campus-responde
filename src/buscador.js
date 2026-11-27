@@ -9,6 +9,12 @@ export function normalizarTexto(texto) {
     .trim();
 }
 
+export function esDocumentoValido(documento) {
+  if (!documento) return false;
+  if (documento.estado === "Retirado") return false;
+  return true;
+}
+
 export function buscarTramites(consulta, catalogo) {
   const consultaNormalizada = normalizarTexto(consulta);
   if (!consultaNormalizada) return [];
@@ -19,6 +25,8 @@ export function buscarTramites(consulta, catalogo) {
   const resultados = [];
 
   for (const doc of catalogo) {
+    if (!esDocumentoValido(doc)) continue;
+
     const tituloNorm = normalizarTexto(doc.titulo);
     const respuestaNorm = normalizarTexto(doc.respuesta);
     const clavesNorm = (doc.palabrasClave || []).map(normalizarTexto);
