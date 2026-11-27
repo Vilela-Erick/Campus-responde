@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusResponde | Consulta Verificable de Trámites ULEAM</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <span class="badge-institucional">ULEAM · FACULTAD CIENCIAS DE LA VIDA Y TECNOLOGÍA</span>
+        <h1>CampusResponde</h1>
+        <p class="subtitle">Sistema de consulta de trámites universitarios con respaldo documental verificable</p>
+      </div>
+      <div class="fecha-corte">
+        <span>Fecha de referencia de vigencia:</span>
+        <strong id="fecha-sistema-label">2026-11-26</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs" aria-label="Vistas del sistema">
+      <button class="tab-btn active" data-tab="consulta">1. Consulta Estudiantil</button>
+      <button class="tab-btn" data-tab="bandeja">2. Revisión Editorial (<span id="contador-derivadas">0</span>)</button>
+      <button class="tab-btn" data-tab="gestion">3. Gestión de Fichas y Versiones</button>
+    </nav>
+
+    <!-- VISTA 1: CONSULTA ESTUDIANTIL (US-01, US-02, US-03, US-04, US-06, US-07) -->
+    <section id="tab-consulta" class="tab-panel active">
+      <div class="card search-card">
+        <h2>Consultar trámite o servicio universitario</h2>
+        <p class="helper-text">
+          Toda respuesta emitida muestra obligatoriamente su fuente normativa oficial, fecha de publicación, fecha de vigencia y unidad responsable.
+        </p>
+        <form id="form-busqueda" class="search-form">
+          <input
+            type="text"
+            id="input-consulta"
+            placeholder="Ej.: homologación de asignaturas, beca socioeconómica, retiro de materia..."
+            required
+          />
+          <button type="submit" class="btn-primary">Buscar respaldo oficial</button>
+        </form>
+        <div class="ejemplos-rapidos">
+          <span>Pruebas rápidas:</span>
+          <button type="button" class="chip" data-query="homologación de asignaturas">Homologación (Vigente)</button>
+          <button type="button" class="chip" data-query="beca socioeconómica">Becas (Vigente)</button>
+          <button type="button" class="chip" data-query="ayudantía de cátedra">Ayudantía (Expirado US-07)</button>
+          <button type="button" class="chip" data-query="prácticas plan 2018">Plan 2018 (Retirado US-06)</button>
+          <button type="button" class="chip" data-query="revalidación título extranjero">Sin respaldo (US-03)</button>
+        </div>
+      </div>
+
+      <div id="contenedor-resultados"></div>
+    </section>
+
+    <!-- VISTA 2: BANDEJA DE REVISIÓN HUMANA (US-04) -->
+    <section id="tab-bandeja" class="tab-panel">
+      <div class="card">
+        <h2>Bandeja de Consultas Derivadas a Revisión Humana</h2>
+        <p class="helper-text">
+          Consultas que activaron el estado <strong>«Información insuficiente»</strong> y fueron enviadas al equipo editor para documentación oficial.
+        </p>
+        <div id="lista-derivadas" class="stack-list"></div>
+      </div>
+    </section>
+
+    <!-- VISTA 3: EDICIÓN CON HISTORIAL Y RETIRO DE FUENTES (US-05, US-06) -->
+    <section id="tab-gestion" class="tab-panel">
+      <div class="card">
+        <h2>Catálogo Documental, Control de Versiones y Vigencia</h2>
+        <p class="helper-text">
+          Cada edición conserva la versión anterior con fecha y motivo. Las fichas retiradas o expiradas se excluyen automáticamente del buscador.
+        </p>
+        <div id="lista-catalogo-editorial" class="stack-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
