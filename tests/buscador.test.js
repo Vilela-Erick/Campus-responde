@@ -16,3 +16,9 @@ test("US-01 y US-02: devuelve tramite con fuente oficial, fecha y unidad respons
   assert.ok(resultados[0].fechaPublicacion.length > 0);
   assert.ok(resultados[0].unidadResponsable.length > 0);
 });
+
+test("US-06: excluye documentos marcados con estado Retirado", () => {
+  const resultados = buscarTramites("practicas preprofesionales plan 2018", catalogo);
+  const ids = resultados.map((r) => r.id);
+  assert.equal(ids.includes("TR-005"), false);
+});
